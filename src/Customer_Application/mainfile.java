@@ -1,12 +1,10 @@
 package Customer_Application;
 
-import java.awt.RenderingHints.Key;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -26,7 +24,7 @@ public class mainfile {
 		prop.load(fis);
 		keyword key = new keyword();
 
-		System.out.println("Do you want\r\n" + "1. Comaker\r\n" + "2. Cosigner");
+		System.out.println("Are you a Signer or Cosigner/Comaker plz click the below option number\r\n" + "1. Cosigner/Comaker\r\n" + "2. Signer");
 		Scanner sc = new Scanner(System.in);
 		int num = sc.nextInt();
 
@@ -71,7 +69,27 @@ public class mainfile {
 			if (num == 1) {
 				key.Clickaction(XP.Comaker);
 				Thread.sleep(1500);
-
+				/* CoMaker Info */
+				key.Sendkeys(XP.ComakerfirstName, sh.getRow(i).getCell(49).toString());
+				key.Sendkeys(XP.ComakerlastName, sh.getRow(i).getCell(50).toString());
+				key.Sendkeys(XP.ComakerDOB, sh.getRow(i).getCell(51).toString());
+				key.Sendkeys(XP.ComakerSSN, sh.getRow(i).getCell(52).toString());
+				key.Sendkeys(XP.ComakerPhone, sh.getRow(i).getCell(53).toString());
+				key.Sendkeys(XP.ComakerEmail, sh.getRow(i).getCell(54).toString());
+				key.Sendkeys(XP.ComakerDL, sh.getRow(i).getCell(55).toString());
+				key.Sendkeys(XP.ComakerStateIssued, sh.getRow(i).getCell(56).toString());
+				key.Sendkeys(XP.ComakerExpirationDate, sh.getRow(i).getCell(57).toString());
+				key.Sendkeys(XP.ComakerAdd1, sh.getRow(i).getCell(58).toString());
+				key.Sendkeys(XP.ComakerAdd2, sh.getRow(i).getCell(59).toString());
+				key.Sendkeys(XP.ComakerCity, sh.getRow(i).getCell(60).toString());
+				key.Sendkeys(XP.ComakerState, sh.getRow(i).getCell(61).toString());
+				key.Sendkeys(XP.ComakerZipCode, NumberToTextConverter.toText(sh.getRow(i).getCell(62).getNumericCellValue()));
+				key.Sendkeys(XP.ComakerRent_Own, sh.getRow(i).getCell(63).toString());
+				key.Clickaction(XP.ComakerZipCode);
+				key.Sendkeys(XP.ComakerMortgage, sh.getRow(i).getCell(64).toString());
+				key.Sendkeys(XP.ComakerYearsOfCurrentAdd,
+						NumberToTextConverter.toText(sh.getRow(i).getCell(65).getNumericCellValue()));
+				
 			}
 			key.Clickaction(XP.CommonButton);
 
@@ -88,6 +106,19 @@ public class mainfile {
 			key.dropdown(XP.DirectDeposit, sh.getRow(i).getCell(29).toString());
 			key.Sendkeys(XP.AvgGrossAmt, NumberToTextConverter.toText(sh.getRow(i).getCell(30).getNumericCellValue()));
 			key.Sendkeys(XP.AvgNetAmt, NumberToTextConverter.toText(sh.getRow(i).getCell(31).getNumericCellValue()));
+			if (num == 1)
+			{
+				key.dropdown(XP.ComakerIncomeSource, sh.getRow(i).getCell(66).toString());
+				key.Sendkeys(XP.ComakerEmployeername, sh.getRow(i).getCell(49).toString());
+				key.Sendkeys(XP.ComakerEmpAdd1, sh.getRow(i).getCell(13).toString());
+				key.Sendkeys(XP.ComakerEmpAdd2, sh.getRow(i).getCell(14).toString());
+				key.Sendkeys(XP.ComakerEmpCity, sh.getRow(i).getCell(15).toString());
+				key.Sendkeys(XP.ComakerEmpState, sh.getRow(i).getCell(16).toString());
+				key.Sendkeys(XP.ComakerEmpZipCode, NumberToTextConverter.toText(sh.getRow(i).getCell(17).getNumericCellValue()));
+				key.Sendkeys(XP.ComakerEmpPhonenum, sh.getRow(i).getCell(53).toString());
+				key.Clickaction(XP.JobType);
+				key.Sendkeys(XP.LengthOfEmp, sh.getRow(i).getCell(67).toString());
+			}
 			key.Clickaction(XP.CommonButton);
 
 			/* Vechile information */
@@ -129,7 +160,13 @@ public class mainfile {
 			/* Terms and signature */
 			Thread.sleep(500);
 			key.Clickaction(XP.Checkbox);
+			
 			key.canvasESign(XP.Signature);
+			if (num == 1)
+			{
+				key.Clickaction(XP.CheckBox2);
+				key.canvasESign(XP.ComakerSignature);
+			}
 //			key.Clickaction(XP.Submit);
 
 		}
