@@ -61,12 +61,41 @@ public class XpathExpressions {
 	String HowDoYouKnow = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div/div[2]//select";
 	/* Terms and signature */
 	String Checkbox = "//div[contains(@class,'c-yesno-checkbox c-field  c-col-1 c-sml-col-1 c-span-12 c-sml-span-12 ')]//label";
+	String CheckBox2="//form//div/div[2]/span[1]/div/div[1]";
 	String Signature = "//div[contains(@class,'c-signature c-field  c-col-1 c-sml-col-1 c-span-12 c-sml-span-12 ')]//canvas";
+	String ComakerSignature="//form//div[2]/span[2]//div[2]/div[1]";
 	public String Submit = "//button[text() ='Submit']";
 
 	/* Comaker section */
 	String Comaker = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/fieldset[3]//label[1]";
-	String ComakerfirstName = "";
+	String ComakerfirstName = "//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[1]/div[2]//input";
+	String ComakerlastName = "//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[2]/div[2]//input";
+	String ComakerDOB = "//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[3]/div[2]//input";
+	String ComakerSSN="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[4]/div[2]//input";
+	String ComakerPhone="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[5]/div[2]//input";
+	String ComakerEmail="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[7]/div[2]//input";
+	String ComakerDL="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[8]/div[2]//input";
+	String ComakerStateIssued="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[9]/div[2]//select";
+	String ComakerExpirationDate="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[10]/div[2]//input";
+	String ComakerAdd1="//div[contains(@class,'c-page toggle-on')]//span//div[2]/fieldset/div[1]/div[1]//input";
+	String ComakerAdd2="//div[contains(@class,'c-page toggle-on')]//span//div[2]/fieldset/div[1]/div[2]//input";
+	String ComakerCity="//div[contains(@class,'c-page toggle-on')]//span//div[2]/fieldset/div[1]/div[3]//input";
+	String ComakerState="//div[contains(@class,'c-page toggle-on')]//span//div[2]/fieldset/div[1]/div[4]//select";
+	String ComakerZipCode="//div[contains(@class,'c-page toggle-on')]//span//div[2]/fieldset/div[1]/div[5]//input";
+	String ComakerRent_Own="//div[contains(@class,'c-page toggle-on')]//span//div[2]/div[11]/div[2]//select";
+	String ComakerMortgage="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[2]/div/div[2]//input";
+	String ComakerYearsOfCurrentAdd="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[3]/div/div[2]//select";
+	String ComakerIncomeSource="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[1]/div/div[2]//select";
+	String ComakerEmployeername="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[3]/div/div[2]//input";
+	String ComakerEmpAdd1="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[5]/fieldset/div[1]/div[1]//input";
+	String ComakerEmpAdd2="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[5]/fieldset/div[1]/div[2]//input";
+	String ComakerEmpCity="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[5]/fieldset/div[1]/div[3]//input";
+	String ComakerEmpState="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[5]/fieldset/div[1]/div[4]//select";
+	String ComakerEmpZipCode="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[5]/fieldset/div[1]/div[5]//input";
+	String ComakerEmpPhonenum="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[6]/div/div[2]//input";
+	String JobType="//form//div//span//div[2]/span[8]/fieldset/div[1]/div[2]";
+	String LengthOfEmp="//div[contains(@class,'c-page toggle-on')]//span//div[2]/span[9]/div/div[2]//select";
+	
 
 	/** Vechile inspection form **/
 	/* General Information */
