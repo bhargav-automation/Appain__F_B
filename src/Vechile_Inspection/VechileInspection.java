@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Scanner;
 
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -22,22 +23,41 @@ public class VechileInspection {
 		FileInputStream fis = new FileInputStream(file);
 		prop.load(fis);
 		keyword key = new keyword();
-		key.url(prop.getProperty("VechieInspectionURL"));
+//		key.url(prop.getProperty("VechieInspectionURL"));
 		FileInputStream fis1 = new FileInputStream(prop.getProperty("CustomerFilepath1"));
 
 		XSSFWorkbook wb = new XSSFWorkbook(fis1);
 
 		XSSFSheet sh = wb.getSheet(prop.getProperty("Sheet1"));
 		int rownum = sh.getLastRowNum();
+//		System.out.println(rownum);
 		String filePath = System.getProperty("user.dir");
 		String ActualResult ="233.57 KB";
+		
+		System.out.println("Are you a Online or Instore\r\n" + "1. Online\r\n" + "2. Instore");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
 
 		XpathExpressions XP = new XpathExpressions();
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i <= rownum; i++) {
 			/* General Information */
-			key.dropdown(XP.storeNumber, sh.getRow(i).getCell(0).toString());
-			key.Sendkeys(XP.InspectSubmitBy, sh.getRow(i).getCell(1).toString());
-			key.Sendkeys(XP.customerID, NumberToTextConverter.toText(sh.getRow(i).getCell(2).getNumericCellValue()));
+			if(num == 1)
+			{
+				key.url(prop.getProperty("OnlineVechieInspectionURL"));
+				key.Sendkeys(XP.online_Storename, sh.getRow(i).getCell(23).toString());
+				key.Sendkeys(XP.Online_PhnNum, NumberToTextConverter.toText(sh.getRow(i).getCell(24).getNumericCellValue()));
+				key.Sendkeys(XP.Online_InspectSubmitBy, sh.getRow(i).getCell(1).toString());
+	
+			}
+			else
+			{
+				key.url(prop.getProperty("VechieInspectionURL"));
+			    key.dropdown(XP.storeNumber, sh.getRow(i).getCell(0).toString());
+			    key.Sendkeys(XP.InspectSubmitBy, sh.getRow(i).getCell(1).toString());
+			    key.Sendkeys(XP.customerID, NumberToTextConverter.toText(sh.getRow(i).getCell(2).getNumericCellValue()));
+			}
+			
+			
 			key.Sendkeys(XP.AppID, NumberToTextConverter.toText(sh.getRow(i).getCell(3).getNumericCellValue()));
 			key.Sendkeys(XP.firstname, sh.getRow(i).getCell(4).toString());
 			key.Sendkeys(XP.lastname, sh.getRow(i).getCell(5).toString());
@@ -51,6 +71,10 @@ public class VechileInspection {
 			key.Sendkeys(XP.color, sh.getRow(i).getCell(9).toString());
 			key.Sendkeys(XP.Mileage1, NumberToTextConverter.toText(sh.getRow(i).getCell(10).getNumericCellValue()));
 			key.Sendkeys(XP.VIN1, sh.getRow(i).getCell(11).toString());
+			if(num == 1)
+			{
+			     key.Sendkeys(XP.TitleNumber, NumberToTextConverter.toText(sh.getRow(i).getCell(25).getNumericCellValue()));
+			}
 			key.Clickaction(XP.CheckboxBtn1);
 			key.Clickaction(XP.CheckboxBtn2);
 			key.Clickaction(XP.CheckboxBtn3);
@@ -81,7 +105,7 @@ public class VechileInspection {
 			key.Clickaction(XP.CommonButton);
             
 			/* Picture Upload */
-			key.Sendkeys(XP.GPSID, sh.getRow(i).getCell(12).toString());
+//			key.Sendkeys(XP.GPSID, sh.getRow(i).getCell(12).toString());
 			key.Sendkeys1(XP.DriversideUpload, filePath + sh.getRow(i).getCell(13).toString());
 			key.Sendkeys1(XP.PassengersideUpload, filePath + sh.getRow(i).getCell(14).toString());
 			key.Sendkeys1(XP.FrontsideUpload, filePath + sh.getRow(i).getCell(15).toString());
@@ -91,8 +115,19 @@ public class VechileInspection {
 			key.Sendkeys1(XP.InteriorUpload, filePath + sh.getRow(i).getCell(19).toString());
 			key.Sendkeys1(XP.OdometerUpload, filePath + sh.getRow(i).getCell(20).toString());
 			key.Sendkeys1(XP.GPSIDNumberUpload, filePath + sh.getRow(i).getCell(21).toString());
-			key.Sendkeys(XP.GPSInstallation, sh.getRow(i).getCell(22).toString());
-			
+			if(num == 1)
+			{
+				  Thread.sleep(1000);
+//			      key.Sendkeys(XP.OnlineVechileTitleUpload, filePath + sh.getRow(i).getCell(18).toString());	
+			      key.Sendkeys(XP.OnlineGovtIDUpload, filePath + sh.getRow(i).getCell(19).toString());
+			      key.Sendkeys(XP.OnlineGPSIDUpload, filePath + sh.getRow(i).getCell(21).toString());
+			      key.Sendkeys(XP.OnlineGPSIDNum, sh.getRow(i).getCell(12).toString());
+			}
+			else
+			{
+				key.Sendkeys(XP.GPSID, sh.getRow(i).getCell(12).toString());
+				key.Sendkeys(XP.GPSInstallation, sh.getRow(i).getCell(22).toString());
+			}
 			for(;;)
 			{
 				try

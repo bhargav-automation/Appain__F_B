@@ -40,7 +40,7 @@ public class mainfile {
 
 		XpathExpressions XP = new XpathExpressions();
 
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i <= rownum; i++) {
 
 			key.dropdown(XP.storeNumber, sh.getRow(i).getCell(0).toString());
 			key.dropdown(XP.applicationType, sh.getRow(i).getCell(1).toString());
@@ -126,10 +126,11 @@ public class mainfile {
 			key.dropdown(XP.Year, NumberToTextConverter.toText(sh.getRow(i).getCell(32).getNumericCellValue()));
 			key.Sendkeys(XP.Make, sh.getRow(i).getCell(33).toString());
 			key.Sendkeys(XP.Model, sh.getRow(i).getCell(34).toString());
-			key.Sendkeys(XP.Mileage, NumberToTextConverter.toText(sh.getRow(i).getCell(35).getNumericCellValue()));
+//			key.Sendkeys(XP.Mileage, NumberToTextConverter.toText(sh.getRow(i).getCell(35).getNumericCellValue()));
+			key.Sendkeys(XP.Mileage, sh.getRow(i).getCell(35).toString());
 			key.Sendkeys(XP.VIN, sh.getRow(i).getCell(36).toString());
 			key.dropdown(XP.CollateralType, sh.getRow(i).getCell(37).toString());
-			key.Sendkeys(XP.TitleNumber, sh.getRow(i).getCell(38).toString());
+			key.Sendkeys(XP.TitleNumber, NumberToTextConverter.toText(sh.getRow(i).getCell(38).getNumericCellValue()));
 			key.Sendkeys(XP.LicensePlateNumber, sh.getRow(i).getCell(39).toString());
 			key.Sendkeys(XP.LicenseExpDate, sh.getRow(i).getCell(40).toString());
 

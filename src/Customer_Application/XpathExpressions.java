@@ -43,7 +43,7 @@ public class XpathExpressions {
 	String Mileage = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[4]//input";
 	String VIN = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[5]//input";
 	String CollateralType = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[6]//select";
-	String TitleNumber = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[7]//input";
+	public String TitleNumber = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[7]//input";
 	String LicensePlateNumber = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[8]//input";
 	String LicenseExpDate = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[9]//input";
 	String Radiobtn1 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[12]//label";
@@ -106,7 +106,7 @@ public class XpathExpressions {
 	public String color = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[4]//input";
 	public String Mileage1 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[5]//input";
 	public String VIN1 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[6]//input";
-	public String CheckboxBtn1 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[8]//label";
+	public String CheckboxBtn1 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[9]//label";
 	public String CheckboxBtn2 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[13]//label";
 	public String CheckboxBtn3 = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[15]//label";
 
@@ -143,8 +143,19 @@ public class XpathExpressions {
 	public String InteriorUpload = "//div[@class='c-page toggle-on']/div//div[3]/div[13]//div[2]//span/input";
 	public String OdometerUpload = "//div[@class='c-page toggle-on']/div//div[3]/div[15]//div[2]//span/input";
 	public String GPSIDNumberUpload = "//div[@class='c-page toggle-on']/div//div[3]/div[17]//div[2]//input";
+	public String OnlineVechileTitleUpload = "//div[@class='c-page toggle-on']/div//div[3]/div[19]//div[2]//input";
+	public String OnlineGovtIDUpload = "//div[@class='c-page toggle-on']/div//div[3]/div[21]//div[2]//input";
+	public String OnlineGPSIDUpload = "//div[@class='c-page toggle-on']/div//div[3]/div[23]//div[2]//input";
+	public String OnlineGPSIDNum = "//div[@class='c-page toggle-on']/div//div[3]/div[24]//div[2]//input";
 	public String checkingToSubmit = "//div[@class='c-page toggle-on']/div//div[3]/div[17]//div[contains (@class,'c-editor c-fileupload')]/div[3]/div/div[2]/div";
 //	public String checkingToSubmit = "//div[@class='c-page toggle-on']/div//div[3]/div[17]//div[contains (@class,'c-editor c-fileupload')]/div[3]/div/div[1]";
 	public String GPSInstallation = "//div[@class='c-page toggle-on']/div//div[3]/div[20]//div[2]//input";
-
+	
+	
+	/*Online Vechile inspections*/
+    public String online_Storename = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[2]//input";
+    public String Online_PhnNum = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[3]//input";
+    public String Online_InspectSubmitBy = "//div[contains(@class,'c-page toggle-on')]/div/div[2]/div[4]//input";
+    
+    
 }
