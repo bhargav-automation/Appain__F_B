@@ -29,11 +29,13 @@ public class VechileInspection {
 
 		XSSFSheet sh = wb.getSheet(prop.getProperty("Sheet1"));
 		int rownum = sh.getLastRowNum();
+		System.out.println(rownum);
 		String filePath = System.getProperty("user.dir");
 		String ActualResult ="233.57 KB";
 
 		XpathExpressions XP = new XpathExpressions();
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i <= rownum; i++)
+		{
 			/* General Information */
 			key.dropdown(XP.storeNumber, sh.getRow(i).getCell(0).toString());
 			key.Sendkeys(XP.InspectSubmitBy, sh.getRow(i).getCell(1).toString());

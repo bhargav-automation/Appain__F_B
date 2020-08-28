@@ -36,11 +36,12 @@ public class mainfile {
 
 		XSSFSheet sh = wb.getSheet(prop.getProperty("Sheet"));
 		int rownum = sh.getLastRowNum();
-		System.out.println("Row Count " + rownum);
+	
+		System.out.println(rownum);
 
 		XpathExpressions XP = new XpathExpressions();
 
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i <= rownum; i++) {
 
 			key.dropdown(XP.storeNumber, sh.getRow(i).getCell(0).toString());
 			key.dropdown(XP.applicationType, sh.getRow(i).getCell(1).toString());
